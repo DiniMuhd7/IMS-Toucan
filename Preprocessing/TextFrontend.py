@@ -64,13 +64,13 @@ class ArticulatoryCombinedTextFrontend:
                 
         elif language == "ha":
             self.g2p_lang = "ha"
-            self.expand_abbreviations = english_text_expansion
+            self.expand_abbreviations = hausa_text_expansion
             if not silent:
                 print("Created a Hausa Text-Frontend")
         
         elif language == "sw":
             self.g2p_lang = "sw"
-            self.expand_abbreviations = english_text_expansion
+            self.expand_abbreviations = swahili_text_expansion
             if not silent:
                 print("Created a Swahili Text-Frontend")
 
@@ -491,6 +491,40 @@ def english_text_expansion(text):
         text = re.sub(regex, replacement, text)
     return text
 
+def hausa_text_expansion(text):
+    """
+    Apply as small part of the tacotron style text cleaning pipeline, suitable for e.g. LJSpeech.
+    See https://github.com/keithito/tacotron/
+    Careful: Only apply to hausa datasets. Different languages need different cleaners.
+    """
+    _abbreviations = [(re.compile('\\b%s\\.' % x[0], re.IGNORECASE), x[1]) for x in
+                      [("wlh", "wallahi"), ("isa", "inshaallah"), ("slm", "salam"), ("aslm", "assalamu alaikum"), ("aslm", "assalam alaikum"),
+                       ("wslm", "wa'alaikumu salam"), ("w/slm", "wa'alaikumu salam"), ("saw", "salallahu alaihi wasalam"), ("as", "alaihi salam"),
+                       ("sw", "subhanahu wata’allah"), ("ra", "radiyallahu anhu"), ("ra", "radiyallahu anha"), ("alhmd", "alhamdulillah"), ("ykk", "yakake"),
+                       ("ykk", "yakike"), ("ngd", "nagode"), ("gsky", "gaskiya"), ("lfy", "lafiya"), ("lpy", "lafiya"), ("gdy", "godiya"), ("hkr", "hakuri"),
+                       ("alh", "alhaji"), ("haj", "hajiya"), ("hkr", "hakuri"), ("mal", "mallam"), ("mal", "malama"), ("srk", "sarki"), ("klu", "kalau"), ("lbr", "labari"),
+                       ("lbr", "labarai"), ("bb", "babu"), ("lit", "litinin"), ("lrb", "laraba"), ("lhd", "lahadi"), ("asb", "asabar"), ("tlt", "talata"), ("min", "minti"),
+                       ("kyye", "kiyaye"), ("wnn", "wannan"), ("y", "ya"), ("yy", "yaya"), ("lkc", "lokaci"), ("lkcn", "lokacin"), ("mgn", "magana"), ("hk", "haka"),
+                       ("ahk", "ahaka"), ("ynz", "yanzu"), ("bbu", "babu"), ("dmw", "damuwa"), ("bkt", "bukata"), ("hausw", "hausawa"), ("2rai", "turai"), ("2ra", "tura"),
+                       ("lau", "kalau"), ("dftn", "dafatan"), ("mgd", "mungode")]]
+    
+    for regex, replacement in _abbreviations:
+        text = re.sub(regex, replacement, text)
+    return text
+
+def swahili_text_expansion(text):
+    """
+    Apply as small part of the tacotron style text cleaning pipeline, suitable for e.g. LJSpeech.
+    See https://github.com/keithito/tacotron/
+    Careful: Only apply to swahili datasets. Different languages need different cleaners.
+    """
+    _abbreviations = [(re.compile('\\b%s\\.' % x[0], re.IGNORECASE), x[1]) for x in
+                      [('Bw.', 'Bwana'),('Bi.', 'Bibi'), ('sh.', 'shilingi'),('Dkt', 'Daktari'), ('–', 'hadi'),
+                        ('prof' , 'profesa'),('n.k.' , 'na kadhalika'),('pst', 'pasta')]]
+    
+    for regex, replacement in _abbreviations:
+        text = re.sub(regex, replacement, text)
+    return text
 
 def remove_french_spacing(text):
     text = text.replace(" »", '"').replace("« ", '"')
