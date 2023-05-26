@@ -191,6 +191,10 @@ class ArticulatoryCombinedTextFrontend:
     def get_example_sentence(lang):
         if lang == "en":
             return "This is a complex sentence, it even has a pause!"
+        elif lang == "ha":
+            return "Wannan jumla ce mai lauje, har ma tana dauke da alamar tsayawa!"
+        elif lang == "sw":
+            return "Hii ni sentensi tata, hata ina pause!"
         elif lang == "de":
             return "Dies ist ein komplexer Satz, er hat sogar eine Pause!"
         elif lang == "el":
