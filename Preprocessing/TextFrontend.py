@@ -192,7 +192,7 @@ class ArticulatoryCombinedTextFrontend:
         if lang == "en":
             return "This is a complex sentence, it even has a pause!"
         elif lang == "ha":
-            return "Wannan jumla ce mai lauje, har ma tana dauke da alamar tsayawa!"
+            return "Wannan jumla ce mai lauje, harma na dauke da alamar tsayawa!"
         elif lang == "sw":
             return "Hii ni sentensi tata, hata ina pause!"
         elif lang == "de":
@@ -572,12 +572,21 @@ def get_language_id(language):
         return torch.LongTensor([16])
     elif language == "pt-br":
         return torch.LongTensor([17])
-
+    elif language == "ha":
+        return torch.LongTensor([18])
+    elif language == "sw":
+        return torch.LongTensor([19])
 
 if __name__ == '__main__':
     tf = ArticulatoryCombinedTextFrontend(language="en")
     tf.string_to_tensor("This is a complex sentence, it even has a pause! But can it do this? Nice.", view=True)
+    
+    tf = ArticulatoryCombinedTextFrontend(language="ha")
+    tf.string_to_tensor("Wannan jumla ce mai lauje, harma na dauke da alamar tsayawa! Amma shin zai iya yin hakan? Madalla.", view=True)
 
+    tf = ArticulatoryCombinedTextFrontend(language="sw")
+    tf.string_to_tensor("Hii ni sentensi tata, hata ina pause! lakini inaweza kufanya hivi? Nzuri.", view=True)
+    
     tf = ArticulatoryCombinedTextFrontend(language="de")
     tf.string_to_tensor("Alles klar, jetzt testen wir einen deutschen Satz. Ich hoffe es gibt nicht mehr viele unspezifizierte Phoneme.", view=True)
 
