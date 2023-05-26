@@ -61,6 +61,18 @@ class ArticulatoryCombinedTextFrontend:
             self.expand_abbreviations = english_text_expansion
             if not silent:
                 print("Created an English Text-Frontend")
+                
+        elif language == "ha":
+            self.g2p_lang = "ha"
+            self.expand_abbreviations = english_text_expansion
+            if not silent:
+                print("Created a Hausa Text-Frontend")
+        
+        elif language == "sw":
+            self.g2p_lang = "sw"
+            self.expand_abbreviations = english_text_expansion
+            if not silent:
+                print("Created a Swahili Text-Frontend")
 
         elif language == "de":
             self.g2p_lang = "de"
