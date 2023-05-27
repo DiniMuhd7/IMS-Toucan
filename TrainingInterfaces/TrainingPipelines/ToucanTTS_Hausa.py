@@ -22,11 +22,11 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
     if model_dir is not None:
         save_dir = model_dir
     else:
-        save_dir = os.path.join(MODELS_DIR, "ToucanTTS_Nancy")
+        save_dir = os.path.join(MODELS_DIR, "ToucanTTS_Hausa")
     os.makedirs(save_dir, exist_ok=True)
 
     train_set = prepare_fastspeech_corpus(transcript_dict=build_path_to_transcript_dict_hausa_integration(),
-                                          corpus_dir=os.path.join(PREPROCESSING_DIR, "Hausa"),
+                                          corpus_dir=os.path.join(PREPROCESSING_DIR, "Madugu"),
                                           lang="ha",
                                           save_imgs=False)
 
@@ -41,7 +41,7 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
                datasets=[train_set],
                device=device,
                save_directory=save_dir,
-               eval_lang="en",
+               eval_lang="ha",
                path_to_checkpoint=resume_checkpoint,
                path_to_embed_model=os.path.join(MODELS_DIR, "Embedding", "embedding_function.pt"),
                fine_tune=finetune,
