@@ -13,6 +13,8 @@ from TrainingInterfaces.TrainingPipelines.StochasticToucanTTS_Nancy import run a
 from TrainingInterfaces.TrainingPipelines.ToucanTTS_IntegrationTest import run as tt_integration_test
 from TrainingInterfaces.TrainingPipelines.ToucanTTS_MetaCheckpoint import run as meta
 from TrainingInterfaces.TrainingPipelines.ToucanTTS_Nancy import run as nancy
+from TrainingInterfaces.TrainingPipelines.ToucanTTS_Hausa import run as madugu
+from TrainingInterfaces.TrainingPipelines.ToucanTTS_Swahili import run as tai
 from TrainingInterfaces.TrainingPipelines.finetuning_example import run as fine_tuning_example
 from TrainingInterfaces.TrainingPipelines.pretrain_aligner import run as aligner
 
@@ -26,6 +28,8 @@ pipeline_dict = {
     "nancy"         : nancy,
     "nancystoch"    : nancystoch,
     "meta"          : meta,
+    "tai"           : tai,
+    "madugu"        : madugu,
     # training vocoders (not recommended, best to use provided checkpoint)
     "avocodo"       : hifi_codo,
     "bigvgan"       : bigvgan,
