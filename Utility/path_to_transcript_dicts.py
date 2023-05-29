@@ -167,29 +167,27 @@ def build_path_to_transcript_dict_integration_test():
 def build_path_to_transcript_dict_hausa_integration():
     root = "/content/IMS-Toucan/HausaDataset/Hausa"
     path_to_transcript = dict()
-    with open(os.path.join(root, "metadata.csv"), "r", encoding="utf8") as file:
-        lookup = file.read()
-    for line in lookup.split("\n")[:500]:
+    with open(root + "/metadata.csv", encoding="utf8") as f:
+        transcriptions = f.read()
+    trans_lines = transcriptions.split("\n")
+    for line in trans_lines:
         if line.strip() != "":
-            norm_transcript = line.split("|")[1]
-            wav_path = os.path.join(root, "wav", line.split("|")[0] + ".wav")
-            if os.path.exists(wav_path):
-                path_to_transcript[wav_path] = norm_transcript
-    return limit_to_n(path_to_transcript)
+            path_to_transcript[root + "/wavs/" + line.split("|")[0] + ".wav"] = \
+                line.split("|")[1]
+    return path_to_transcript
 
 
 def build_path_to_transcript_dict_swahili_integration():
     root = "/content/IMS-Toucan/KiswaliDataset/Swahili"
     path_to_transcript = dict()
-    with open(os.path.join(root, "metadata.csv"), "r", encoding="utf8") as file:
-        lookup = file.read()
-    for line in lookup.split("\n")[:500]:
+    with open(root + "/metadata.csv", encoding="utf8") as f:
+        transcriptions = f.read()
+    trans_lines = transcriptions.split("\n")
+    for line in trans_lines:
         if line.strip() != "":
-            norm_transcript = line.split("|")[1]
-            wav_path = os.path.join(root, "wav", line.split("|")[0] + ".wav")
-            if os.path.exists(wav_path):
-                path_to_transcript[wav_path] = norm_transcript
-    return limit_to_n(path_to_transcript)
+            path_to_transcript[root + "/wavs/" + line.split("|")[0] + ".wav"] = \
+                line.split("|")[1]
+    return path_to_transcript
 
 
 def build_path_to_transcript_dict_hokuspokus():
