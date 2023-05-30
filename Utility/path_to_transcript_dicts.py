@@ -165,7 +165,7 @@ def build_path_to_transcript_dict_integration_test():
 
 
 def build_path_to_transcript_dict_hausa_integration():
-    root = "/work/IMS-Toucan/HausaDataset/Hausa"
+    root = "/content/IMS-Toucan/HausaDataset/Hausa"
     path_to_transcript = dict()
     with open(root + "/metadata.csv", encoding="utf8") as f:
         transcriptions = f.read()
@@ -178,7 +178,7 @@ def build_path_to_transcript_dict_hausa_integration():
 
 
 def build_path_to_transcript_dict_swahili_integration():
-    root = "/work/IMS-Toucan/KiswaliDataset/Swahili"
+    root = "/content/IMS-Toucan/KiswaliDataset/Swahili"
     path_to_transcript = dict()
     with open(root + "/metadata.csv", encoding="utf8") as f:
         transcriptions = f.read()
