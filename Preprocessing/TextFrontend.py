@@ -70,7 +70,7 @@ class ArticulatoryCombinedTextFrontend:
         
         elif language == "sw":
             self.g2p_lang = "sw"
-            self.expand_abbreviations = swahili_text_expansion
+            self.expand_abbreviations = hausa_text_expansion
             if not silent:
                 print("Created a Swahili Text-Frontend")
 
