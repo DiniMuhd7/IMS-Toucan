@@ -27,7 +27,7 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
 
     train_set = prepare_fastspeech_corpus(transcript_dict=build_path_to_transcript_dict_hausa_integration(),
                                           corpus_dir=os.path.join(PREPROCESSING_DIR, "Madugu"),
-                                          lang="ha",
+                                          lang="sw",
                                           save_imgs=False)
 
     model = ToucanTTS()
@@ -41,7 +41,7 @@ def run(gpu_id, resume_checkpoint, finetune, model_dir, resume, use_wandb, wandb
                datasets=[train_set],
                device=device,
                save_directory=save_dir,
-               eval_lang="ha",
+               eval_lang="sw",
                path_to_checkpoint=resume_checkpoint,
                path_to_embed_model=os.path.join(MODELS_DIR, "Embedding", "embedding_function.pt"),
                fine_tune=finetune,
