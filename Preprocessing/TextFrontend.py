@@ -192,7 +192,7 @@ class ArticulatoryCombinedTextFrontend:
         if lang == "en":
             return "This is a complex sentence, it even has a pause!"
         elif lang == "ha":
-            return "Wannan jumla ce mai lauje, harma na dauke da alamar tsayawa!"
+            return "Wannan shine jumla mai lauje, mai ɗauke da alamar tsayawa!"
         elif lang == "sw":
             # Hii ni sentensi tata, hata ina pause
             return "Wannan shine jumla mai lauje, mai ɗauke da alamar tsayawa!"
