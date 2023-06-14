@@ -194,7 +194,8 @@ class ArticulatoryCombinedTextFrontend:
         elif lang == "ha":
             return "Wannan jumla ce mai lauje, harma na dauke da alamar tsayawa!"
         elif lang == "sw":
-            return "Hii ni sentensi tata, hata ina pause!"
+            # Hii ni sentensi tata, hata ina pause
+            return "Wannan shine jumla mai lauje, mai ɗauke da alamar tsayawa!"
         elif lang == "de":
             return "Dies ist ein komplexer Satz, er hat sogar eine Pause!"
         elif lang == "el":
