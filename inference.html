@@ -1,0 +1,6 @@
+<h1>TTS Inference</h1>
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    {{ form.text_input.label }} {{ form.text_input() }}
+    {{ form.submit() }}
+</form>
