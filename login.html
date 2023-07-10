@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username() }}
+    {{ form.password.label }} {{ form.password() }}
+    {{ form.submit() }}
+</form>
