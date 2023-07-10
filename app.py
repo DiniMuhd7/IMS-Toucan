@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
+# import os os.urandom(12).hex()
 # python3 -m venv tts_env source tts_env/bin/activate pip install torch pip install flask pip install flask_wtf
 
 app = Flask(__name__)
